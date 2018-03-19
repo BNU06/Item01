@@ -1,0 +1,170 @@
+item01 = item02 = item03 = item04 = item05 = item06 = item07 = item08 = item09 = item10 = 0
+def judge(item01,item02,item03,item04,item05,item06,item07,item08,item09,item10):
+    summary = 0 #所有item同时成立标准
+    judge01 = 1
+    judge02 = 0 # item02得分标准
+    if(item02 == 1 and item05 == 3):
+        judge02 = 1
+    elif(item02 == 2 and item05 == 4):
+        judge02 = 1
+    elif(item02 == 3 and item05 == 1):
+        judge02 = 1
+    elif(item02 == 4 and item05 == 2):
+        judge02 = 1
+    else:
+        judge02 = 0
+    judge03 = 0 # item03得分标准
+    if(item03 == 1 and item06 == item02 == item04):
+        judge03 = 1
+    elif(item03 == 2 and item03 == item02 == item04):
+        judge03 = 1
+    elif(item03 == 3 and item03 == item06 == item04):
+        judge03 = 1
+    elif(item03 == 4 and item03 == item06 == item02):
+        judge03 = 1
+    else:
+        judge03 = 0
+    judge04 = 0 # item04得分标准
+    if(item04 == 1 and item01 == item05):
+        judge04 = 1
+    elif(item04 == 2 and item02 == item07):
+        judge04 = 1
+    elif(item04 == 3 and item01 == item09):
+        judge04 = 1
+    elif(item04 == 4 and item06 == item10):
+        judge04 = 1
+    else:
+        judge04 = 0
+    judge05 = 0 # item05得分标准
+    if(item05 == 1 and item05 == item08):
+        judge05 = 1
+    elif(item05 == 2 and item05 == item04):
+        judge05 = 1
+    elif(item05 == 3 and item05 == item09):
+        judge05 = 1
+    elif(item05 == 4 and item05 == item07):
+        judge05 = 1
+    else:
+        judge05 = 0
+    judge06 = 0 # item06得分标准
+    if(item06 == 1 and item02 == item08 == item04):
+        judge06 = 1
+    elif(item06 == 2 and item01 == item08 == item06):
+        judge06 = 1
+    elif(item06 == 3 and item03 == item08  == item10):
+        judge06 = 1
+    elif(item06 == 4 and item05 == item08  == item09):
+        judge06 = 1
+    else:
+        judge06 = 0        
+    judge07 = 0 # item07得分标准
+    num = item01 * pow(10,9) + item02 * pow(10,8) + item03 * pow(10,7) + item04 * pow(10,6) + item05 * pow(10,5) + item06 * pow(10,4) + item07 * pow(10,3) + item08 * pow(10,2) + item09 * 10 + item10
+    ans =str(num)
+    import collections
+    x = collections.Counter(ans)
+    count01 = x["1"]
+    count02 = x["2"]
+    count03 = x["3"]
+    count04 = x["4"]
+    minimum = min(count01,count02,count03,count04)
+    if(count01 == minimum):
+        number = 1
+    elif(count02 == minimum):
+        number = 2
+    elif(count03 == minimum):
+        number = 3
+    elif(count04 == minimum):
+        number = 4
+    else:
+        number = 0
+    if(item07 == 1 and number == 3):
+        judge07 = 1
+    elif(item07 == 2 and number == 2):
+        judge07 = 1
+    elif(item07 == 3 and number == 1):
+        judge07 = 1
+    elif(item07 == 4 and number == 4):
+        judge07 = 1
+    else:
+        judge07 = 0
+    judge08 = 0 # item08得分标准
+    abstract01 = abs(item01 - item07)
+    abstract02 = abs(item01 - item05)
+    abstract03 = abs(item01 - item02)
+    abstract04 = abs(item01 - item10)
+    if(item08 == 1 and abstract01 != 1):
+        judge08 = 1
+    elif(item08 == 2 and abstract02 != 1):
+        judge08 = 1
+    elif(item08 == 3 and abstract03 != 1):
+        judge08 = 1
+    elif(item08 == 4 and abstract04 != 1):
+        judge08 = 1
+    else:
+        judge08 = 0
+    judge09 = 0 # item09得分标准
+    if(item01 == item06):
+        if(item09 == 1 and item06 != item05):
+            judge09 = 1
+        elif(item09 == 2 and item10 != item05):
+            judge09 = 1
+        elif(item09 == 3 and item02 != item05):
+            judge09 = 1
+        elif(item09 == 4 and item09 != item05):
+            judge09 = 1
+        else:
+            judge09 = 0
+    elif(item01 != item06):
+        if(item09 == 1 and item06 == item05):
+            judge09 = 1
+        elif(item09 == 2 and item10 == item05):
+            judge09 = 1
+        elif(item09 == 3 and item02 == item05):
+            judge09 = 1
+        elif(item09 == 4 and item09 == item05):
+            judge09 = 1
+    else:
+        judge09 = 0
+    judge10 = 0 # item10得分标准
+    num = item01 * pow(10,9) + item02 * pow(10,8) + item03 * pow(10,7) + item04 * pow(10,6) + item05 * pow(10,5) + item06 * pow(10,4) + item07 * pow(10,3) + item08 * pow(10,2) + item09 * 10 + item10
+    ans =str(num)
+    import collections
+    x = collections.Counter(ans)
+    count05 = x["1"]
+    count06 = x["2"]
+    count07 = x["3"]
+    count08 = x["4"]
+    minimum = min(count05,count06,count07,count08)
+    maximum = max(count05,count06,count07,count08)
+    diverse = maximum - minimum
+    if(item10 == 1 and diverse == 3):
+        judge10 = 1
+    elif(item10 == 2 and diverse == 2):
+        judge10 = 1
+    elif(item10 == 3 and diverse == 4):
+        judge10 = 1
+    elif(item10 == 4 and diverse == 1):
+        judge10 = 1
+    else:
+        judge10 = 0
+    summary = judge01 + judge02 + judge03 + judge04 + judge05 + judge06 + judge07 + judge08 + judge09 + judge10
+    return summary
+for item01 in range(1,5):
+    for item02 in range(1,5):
+        for item03 in range(1,5):
+            for item04 in range(1,5):
+                for item05 in range(1,5):
+                    for item06 in range(1,5):
+                        for item07 in range(1,5):
+                            for item08 in range(1,5):
+                                for item09 in range(1,5):
+                                    for item10 in range(1,5):
+                                        judgeall = judge(item01,item02,item03,item04,item05,item06,item07,item08,item09,item10)
+                                        if judgeall == 10:
+                                            result01 = item01 * pow(10,9) + item02 * pow(10,8) + item03 * pow(10,7) + item04 * pow(10,6) + item05 * pow(10,5) + item06 * pow(10,4) + item07 * pow(10,3) + item08 * pow(10,2) + item09 * 10 + item10
+                                            result02 = str(result01)
+                                            result03 = result02.replace('1','A')
+                                            result04 = result03.replace('2','B')
+                                            result05 = result04.replace('3','C')
+                                            result06 = result05.replace('4','D')
+                                            print("答案是：",result06)
